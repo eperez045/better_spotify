@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useAuth(code) {
@@ -10,7 +10,7 @@ export default function useAuth(code) {
       .post("http://localhost:3001/login", {
         code,
       })
-      .then((res) => {
+      .then(res => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
         setExpiresIn(res.data.expiresIn);
@@ -27,7 +27,7 @@ export default function useAuth(code) {
         .post("http://localhost:3001/refresh", {
           refreshToken,
         })
-        .then((res) => {
+        .then(res => {
           setAccessToken(res.data.accessToken);
           setExpiresIn(res.data.expiresIn);
         })
