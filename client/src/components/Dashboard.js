@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react"
 import { IonItem, IonInput } from "@ionic/react"
-import useAuth from "../useAuth"
+import useAuth from "../hooks/useAuth"
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
 import Player from "./Player" 
