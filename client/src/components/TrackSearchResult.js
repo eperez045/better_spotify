@@ -13,12 +13,12 @@ export default function TrackSearchResult({ track, chooseTrack }) {
       onClick={handlePlay}
     >
       <div className="card-img-back">
-        <img  src={track.albumUrl} style={{ height: "100px", width: "100px" }} />
+        <img  src={track.albumUrl} />
       </div>
       
-      <img className="card-img-art" src={track.albumUrl} style={{ height: "64px", width: "64px" }} />
-      <div className="ml-3">
-        <div>{track.title}</div>
+      <img className="card-img-art" src={track.albumUrl} style={{ height: "80px", width: "80px" }} />
+      <div className="card-text">
+        <div className="card-title">{track.title}</div>
         <div>{track.artist}</div>
       </div>
       </div>
