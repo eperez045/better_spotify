@@ -9,6 +9,7 @@ export default function Player({ accessToken, trackUri }) {
   if (!accessToken) return null
   return (
     <SpotifyPlayer
+      styles={{ bgColor: "#393939", color: "#fff", trackArtistColor:"#cbccc8", trackNameColor: "#fff"}}
       token={accessToken}
       showSaveIcon
       callback={state => {

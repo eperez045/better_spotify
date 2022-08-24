@@ -16,7 +16,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
         <img  src={track.albumUrl} />
       </div>
       
-      <img className="card-img-art" src={track.albumUrl} style={{ height: "80px", width: "80px" }} />
+      <img className="card-img-art" src={track.albumUrl} style={{ height: "90px", width: "90px" }} />
       <div className="card-text">
         <div className="card-title">{track.title}</div>
         <div>{track.artist}</div>

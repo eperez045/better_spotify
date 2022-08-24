@@ -75,9 +75,8 @@ box-shadow: inset 5px 5px 20px #adadaa,
 .card-img-art {
     position: relative;
     border-radius: 100%;
-    /* width: 14rem;
-    height: 14rem; */
-    margin: 16px;
+    border: #393939 3px solid;
+    margin: 10px;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
     transition: ease all 0.2s;
 }
@@ -106,6 +105,14 @@ box-shadow: inset 5px 5px 20px #adadaa,
     font-family: 'Segoe UI';
     font-size: 14px;
     color: #707070;
+}
+
+.lyrics{
+    font-family: 'Segoe UI';
+    padding: 1rem;
+    color: #393939;
+    font-size: 14px;
+    white-space: pre-line;
 }
 
 .badge {

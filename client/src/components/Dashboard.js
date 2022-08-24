@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { IonItem, IonInput } from "@ionic/react";
 import useAuth from "../hooks/useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
 import axios from "axios";
 import Player from "./Player";
 import TrackSearchResult from "./TrackSearchResult";
-import Virtuoso from "react-virtuoso";
+
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "2d7e16cc26b94302a104ee7039f606c8",
@@ -55,7 +54,9 @@ export default function Dashboard({ code }) {
       setSearchResults(
         res.body.tracks.items.map((track) => {
           const smallestAlbumImage = track.album.images.reduce(
+            
             (smallest, image) => {
+              console.log(image)
               if (image.height < smallest.height) return image;
               return smallest;
             },
@@ -92,7 +93,7 @@ export default function Dashboard({ code }) {
             chooseTrack={chooseTrack}
           />
         ))}
-        {searchResults.length === 0 && <div>{lyrics}</div>}
+        {searchResults.length === 0 && <div className="lyrics">{lyrics}</div>}
       </div>
       <div className="player">
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
