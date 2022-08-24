@@ -83,7 +83,7 @@ export default function Dashboard({code}){
         value={search}
         onChange={e => setSearch(e.target.value)}
         />
-      <div>
+      <div className="card-container">
         {searchResults.map(track => (
           <TrackSearchResult
             track={track}

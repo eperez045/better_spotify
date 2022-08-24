@@ -6,11 +6,15 @@ export default function TrackSearchResult({ track, chooseTrack }) {
   }
 
   return (
-    <div
+    <div className="cards"
       style={{ cursor: "pointer" }}
       onClick={handlePlay}
     >
-      <img src={track.albumUrl} style={{ height: "64px", width: "64px" }} />
+      <div className="card-img-back">
+        <img  src={track.albumUrl} style={{ height: "100px", width: "100px" }} />
+      </div>
+      
+      <img className="card-img-art" src={track.albumUrl} style={{ height: "64px", width: "64px" }} />
       <div className="ml-3">
         <div>{track.title}</div>
         <div>{track.artist}</div>
