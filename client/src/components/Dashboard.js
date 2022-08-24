@@ -2,6 +2,9 @@ import {useState, useEffect} from "react"
 import { IonItem, IonInput } from "@ionic/react"
 import useAuth from "../useAuth"
 import SpotifyWebApi from "spotify-web-api-node"
+import axios from "axios"
+import Player from "./Player" 
+import TrackSearchResult from "./TrackSearchResult"
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "2d7e16cc26b94302a104ee7039f606c8",
@@ -11,6 +14,29 @@ export default function Dashboard({code}){
   const accessToken = useAuth(code)
   const [search, setSearch] = useState("")
   const [searchResults, setSearchResults] = useState([])
+  const [playingTrack, setPlayingTrack] = useState()
+  const [lyrics, setLyrics] = useState("")
+
+  function chooseTrack(track) {
+    setPlayingTrack(track)
+    setSearch("")
+    setLyrics("")
+  }
+
+  useEffect(() => {
+    if (!playingTrack) return
+
+    axios
+      .get("http://localhost:3001/lyrics", {
+        params: {
+          track: playingTrack.title,
+          artist: playingTrack.artist,
+        },
+      })
+      .then(res => {
+        setLyrics(res.data.lyrics)
+      })
+  }, [playingTrack])
 
   useEffect(() => {
     if (!accessToken) return
@@ -57,8 +83,23 @@ export default function Dashboard({code}){
         value={search}
         onChange={e => setSearch(e.target.value)}
         />
-      
-      
+      <div>
+        {searchResults.map(track => (
+          <TrackSearchResult
+            track={track}
+            key={track.uri}
+            chooseTrack={chooseTrack}
+          />
+        ))}
+        {searchResults.length === 0 && (
+          <div>
+            {lyrics}
+          </div>
+        )}
+      </div>
+      <div>
+        <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+      </div>
       
 
     </div>)
