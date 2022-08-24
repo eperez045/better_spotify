@@ -1,3 +1,4 @@
+import { IonInfiniteScrollContent } from "@ionic/react"
 import React from "react"
 
 export default function TrackSearchResult({ track, chooseTrack }) {
@@ -6,6 +7,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
   }
 
   return (
+    <>
     <div className="cards"
       style={{ cursor: "pointer" }}
       onClick={handlePlay}
@@ -19,6 +21,7 @@ export default function TrackSearchResult({ track, chooseTrack }) {
         <div>{track.title}</div>
         <div>{track.artist}</div>
       </div>
-    </div>
+      </div>
+      </>
   )
 }

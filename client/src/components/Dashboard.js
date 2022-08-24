@@ -1,10 +1,11 @@
 import {useState, useEffect} from "react"
 import { IonItem, IonInput } from "@ionic/react"
-import useAuth from "../hooks/useAuth"
+import useAuth from "../useAuth"
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
 import Player from "./Player" 
 import TrackSearchResult from "./TrackSearchResult"
+import Virtuoso  from 'react-virtuoso';
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "2d7e16cc26b94302a104ee7039f606c8",
@@ -78,6 +79,7 @@ export default function Dashboard({code}){
     <div>
       
         <input
+        className="search-bar"
         type="search"
         placeholder="Search Songs"
         value={search}
@@ -97,7 +99,7 @@ export default function Dashboard({code}){
           </div>
         )}
       </div>
-      <div>
+      <div className="player">
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
       
