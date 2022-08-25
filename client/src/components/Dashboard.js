@@ -78,6 +78,7 @@ export default function Dashboard({ code }) {
 
   return (
     <div className="container">
+      <div className="search-container">
       <input
         className="search-bar"
         type="search"
@@ -85,6 +86,8 @@ export default function Dashboard({ code }) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      </div>
+
       <div className="card-container">
         {searchResults.map((track) => (
           <TrackSearchResult
@@ -95,6 +98,8 @@ export default function Dashboard({ code }) {
         ))}
         {searchResults.length === 0 && <div className="lyrics">{lyrics}</div>}
       </div>
+      
+      
       <div className="player">
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>

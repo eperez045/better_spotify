@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-// import { searchOutline, homeOutline } from 'ionicons/icons';
+import { searchOutline, homeOutline } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 
@@ -54,11 +54,11 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom" color="dark">
           <IonTabButton tab="tab1" href="/tab1">
-            {/* <IonIcon icon={homeOutline} /> */}
+            <IonIcon icon={homeOutline} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            {/* <IonIcon icon={searchOutline} /> */}
+            <IonIcon icon={searchOutline} />
             <IonLabel>Tab 2</IonLabel>
           </IonTabButton>
           
