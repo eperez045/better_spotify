@@ -19,6 +19,8 @@
     "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "rimraf": "^3.0.2",
+    "webpack-cli": "^4.10.0"
   }
 }
