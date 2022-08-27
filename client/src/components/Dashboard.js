@@ -62,6 +62,7 @@ export default function Dashboard({ code }) {
             },
             track.album.images[0]
           );
+          
 
           return {
             artist: track.artists[0].name,
